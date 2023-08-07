@@ -1,7 +1,7 @@
 
 import streamlit as st
 import requests
-from google_drive_downloader import GoogleDriveDownloader
+from google_drive_downloader import GoogleDriveDownloader as gdd
 
 # Function to download .pth from Gdrive
 def download_model_file(file_id, destination_path):
