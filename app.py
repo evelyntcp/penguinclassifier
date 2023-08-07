@@ -17,7 +17,7 @@ if not os.path.exists(destination_path):
     download_model_file(file_id, destination_path)
 
 # Load the .pth file and use it as needed
-model = load_model_from_pth(destination_path)
+model = torch.load(destination_path)
 
 # Define class names
 class_names = ['Chinstrap Penguins', 'Piplup', 'Adelie Penguins', 'Gentoo Penguins', 'Miniso Penguins']
