@@ -44,10 +44,12 @@ class_to_index= {class_name: index for index, class_name in enumerate(class_name
 model = PenguinCNN(num_classes=len(class_names))
 
 # Load quantized model state dictionary
-quantized_state_dict = torch.load('quantized_penguin_model.pth', map_location=torch.device('cpu'))
+# quantized_state_dict = torch.load('quantized_penguin_model.pth', map_location=torch.device('cpu'))
 
 # Assign the quantized state dictionary to the model
-model.load_state_dict(quantized_state_dict)
+# model.load_state_dict(quantized_state_dict)
+
+short_quantized_model = torch.load('short_quantized_penguin_model.pth')
 model.eval()
 
 # Function to make predictions
