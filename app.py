@@ -2,6 +2,7 @@
 import streamlit as st
 import requests
 import os
+import torch
 from google_drive_downloader import GoogleDriveDownloader as gdd
 
 # Function to download .pth from Gdrive
