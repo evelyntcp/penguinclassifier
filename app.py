@@ -4,6 +4,7 @@ import requests
 import os
 import torch
 import torch.nn as nn
+from torchvision import datasets, transforms
 
 # Define CNN model
 class PenguinCNN(nn.Module):
