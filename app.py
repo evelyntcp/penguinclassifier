@@ -3,6 +3,7 @@ import streamlit as st
 import requests
 import os
 import torch
+import torch.nn as nn
 from google_drive_downloader import GoogleDriveDownloader as gdd
 
 # Define CNN model
