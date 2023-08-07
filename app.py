@@ -4,7 +4,6 @@ import requests
 import os
 import torch
 import torch.nn as nn
-from google_drive_downloader import GoogleDriveDownloader as gdd
 
 # Define CNN model
 class PenguinCNN(nn.Module):
@@ -38,13 +37,18 @@ class PenguinCNN(nn.Module):
         x = self.classifier(x)
         return x
 
-# Load the .pth file
-model = torch.load('quantized_penguin_model.pth', map_location=torch.device('cpu'))
-model.eval()
-
 # Define class names
 class_names = ['Chinstrap Penguins', 'Piplup', 'Adelie Penguins', 'Gentoo Penguins', 'Miniso Penguins']
 class_to_index= {class_name: index for index, class_name in enumerate(class_names)}
+
+model = PenguinCNN(num_classes=len(class_names))
+
+# Load quantized model state dictionary
+quantized_state_dict = torch.load('quantized_penguin_model.pth', map_location=torch.device('cpu'))
+
+# Assign the quantized state dictionary to the model
+model.load_state_dict(quantized_state_dict)
+model.eval()
 
 # Function to make predictions
 def predict_species(image):
